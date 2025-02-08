@@ -18,6 +18,8 @@
                 <span id="mit">00</span>
                 <span>:</span>
                 <span id="sec">00</span>
+                <span id="AmPm">00</span>
+                
             </div>
             <div>
                 
@@ -30,16 +32,26 @@
         let hrs = document.getElementById("hrs")
         let mit = document.getElementById("mit")
         let sec = document.getElementById("sec")
+        let setampm= document.getElementById("AmPm")
 
         setInterval(() => {
-
-
             let currentTime = new Date();
-            hrs.innerHTML = currentTime.getHours()
-            mit.innerHTML = currentTime.getMinutes()
-            sec.innerHTML = currentTime.getSeconds()
-        }, 1000)
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+            hours = hours % 12;
+            let ampm = hours >= 12 ? '🌃' : '🌄';
 
+            
+            
+    
+            hrs.innerHTML = hours;
+            mit.innerHTML = minutes;
+            sec.innerHTML = seconds;
+            setampm.innerHTML = ampm
+            
+        }, 1000)
+       
 
 
 
